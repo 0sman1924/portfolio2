@@ -1,26 +1,138 @@
 @import "tailwindcss";
 
+/* ============================================
+   Theme System — CSS Custom Properties
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background */
+  --background: #fafafa;
+  --background-secondary: #f4f4f5;
+
+  /* Foreground / Text */
+  --foreground: #18181b;
+  --foreground-secondary: #52525b;
+  --foreground-muted: #a1a1aa;
+
+  /* Card */
+  --card: #ffffff;
+  --card-border: #e4e4e7;
+  --card-hover: #f4f4f5;
+
+  /* Accent */
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-foreground: #ffffff;
+
+  /* Border */
+  --border: #e4e4e7;
+
+  /* Tag */
+  --tag-bg: #f4f4f5;
+  --tag-text: #3f3f46;
+
+  /* Code */
+  --code-bg: #f4f4f5;
+
+  /* Scrollbar */
+  --scrollbar-track: #f4f4f5;
+  --scrollbar-thumb: #d4d4d8;
 }
+
+[data-theme="dark"] {
+  --background: #09090b;
+  --background-secondary: #18181b;
+
+  --foreground: #fafafa;
+  --foreground-secondary: #a1a1aa;
+  --foreground-muted: #71717a;
+
+  --card: #18181b;
+  --card-border: #27272a;
+  --card-hover: #27272a;
+
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-foreground: #ffffff;
+
+  --border: #27272a;
+
+  --tag-bg: #27272a;
+  --tag-text: #d4d4d8;
+
+  --code-bg: #1e1e1e;
+
+  --scrollbar-track: #18181b;
+  --scrollbar-thumb: #3f3f46;
+}
+
+/* ============================================
+   Register theme tokens with Tailwind v4
+   ============================================ */
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+
   --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-card-hover: var(--card-hover);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-border: var(--border);
+
+  --color-tag-bg: var(--tag-bg);
+  --color-tag-text: var(--tag-text);
+
+  --color-code-bg: var(--code-bg);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ============================================
+   Base Styles
+   ============================================ */
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground-muted);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
 }
