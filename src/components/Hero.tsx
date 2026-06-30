@@ -9,27 +9,39 @@ import { SocialLinks } from "./SocialLinks";
  * Multilingual name variants for the typing animation.
  * PRD requires "Animated multilingual name" in the Hero.
  */
-const nameVariants = [
-  "Your Name",
-  "あなたの名前",
-  "اسمك",
-  "Votre Nom",
-  "你的名字",
-  "Tu Nombre",
+const NAME_ENGLISH = "Your Name";
+const NAME_ARABIC = "اسمك";
+const OTHER_NAMES = [
+  "Votre Nom",     // French
+  "Dein Name",     // German
+  "Il Tuo Nome",   // Italian
+  "Tu Nombre",     // Spanish
+  "Adınız",        // Turkish
+  "نام شما",       // Persian (Farsi)
+  "Ваше имя",      // Russian
+  "你的名字",      // Chinese
+  "당신의 이름",   // Korean
+  "あなたの名前",   // Japanese
+  "आपका नाम",      // Hindi
 ];
 
 const TYPING_SPEED = 80;
 const DELETING_SPEED = 50;
 const PAUSE_DURATION = 2000;
 
+const getRandomName = () => {
+  const rand = Math.random();
+  if (rand < 0.4) return NAME_ENGLISH; // 40% probability
+  if (rand < 0.8) return NAME_ARABIC; // 40% probability
+  return OTHER_NAMES[Math.floor(Math.random() * OTHER_NAMES.length)]; // 20% remaining
+};
+
 export function Hero() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentName, setCurrentName] = useState(NAME_ENGLISH);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentName = nameVariants[currentIndex];
-
     const timeout = setTimeout(
       () => {
         if (!isDeleting) {
@@ -45,9 +57,15 @@ export function Hero() {
           if (displayText.length > 0) {
             setDisplayText(displayText.slice(0, -1));
           } else {
-            // Finished deleting — move to next name
+            // Finished deleting — select next name
             setIsDeleting(false);
-            setCurrentIndex((prev) => (prev + 1) % nameVariants.length);
+            
+            // Pick a new random name that is different from the current one (if possible)
+            let nextName = getRandomName();
+            while (nextName === currentName && OTHER_NAMES.length > 0) {
+              nextName = getRandomName();
+            }
+            setCurrentName(nextName);
           }
         }
       },
@@ -55,7 +73,7 @@ export function Hero() {
     );
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, currentIndex]);
+  }, [displayText, isDeleting, currentName]);
 
   return (
     <section className="py-20 md:py-28">
@@ -85,14 +103,14 @@ export function Hero() {
           <div className="flex flex-wrap gap-3 mb-8">
             <Link
               href="/reports"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-accent-foreground text-sm font-medium hover:bg-accent-hover transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-accent-foreground text-sm font-medium hover:bg-accent-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <FileText size={16} />
               View Reports
             </Link>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border text-foreground text-sm font-medium hover:bg-card-hover transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border text-foreground text-sm font-medium hover:bg-card-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <FolderGit2 size={16} />
               View Projects
@@ -100,7 +118,7 @@ export function Hero() {
             <a
               href="/resume/resume.pdf"
               download
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border text-foreground text-sm font-medium hover:bg-card-hover transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border text-foreground text-sm font-medium hover:bg-card-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <Download size={16} />
               Download Resume

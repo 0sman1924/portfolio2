@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Tag } from "./Tag";
 
 interface TagFilterProps {
   tags: string[];
@@ -25,7 +24,8 @@ export function TagFilter({ tags, selectedTags, onToggle, onClear }: TagFilterPr
         {selectedTags.length > 0 && (
           <button
             onClick={onClear}
-            className="text-xs text-accent hover:text-accent-hover transition-colors cursor-pointer"
+            aria-label="Clear all filters"
+            className="text-xs text-accent hover:text-accent-hover transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
           >
             Clear all
           </button>
@@ -38,7 +38,8 @@ export function TagFilter({ tags, selectedTags, onToggle, onClear }: TagFilterPr
             <button
               key={tag}
               onClick={() => onToggle(tag)}
-              className={`cursor-pointer px-2.5 py-1 text-xs font-medium rounded-md transition-colors duration-150 ${
+              aria-pressed={isSelected}
+              className={`cursor-pointer px-2.5 py-1 text-xs font-medium rounded-md transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 isSelected
                   ? "bg-accent text-accent-foreground"
                   : "bg-tag-bg text-tag-text hover:bg-accent/10 hover:text-accent"
@@ -51,7 +52,8 @@ export function TagFilter({ tags, selectedTags, onToggle, onClear }: TagFilterPr
         {hasMore && (
           <button
             onClick={() => setExpanded(!expanded)}
-            className="text-xs text-foreground-muted hover:text-accent transition-colors cursor-pointer"
+            aria-expanded={expanded}
+            className="text-xs text-foreground-muted hover:text-accent transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded px-1"
           >
             {expanded ? "Show less" : `+${tags.length - 8} more`}
           </button>

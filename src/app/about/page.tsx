@@ -76,7 +76,7 @@ export default function AboutPage() {
                     href={cert.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-accent hover:text-accent-hover transition-colors whitespace-nowrap"
+                    className="text-xs text-accent hover:text-accent-hover transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
                   >
                     Verify →
                   </a>
@@ -165,7 +165,7 @@ export default function AboutPage() {
           <a
             href="/resume/resume.pdf"
             download
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-accent-foreground text-sm font-medium hover:bg-accent-hover transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-accent-foreground text-sm font-medium hover:bg-accent-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Download size={16} />
             Download Resume (PDF)

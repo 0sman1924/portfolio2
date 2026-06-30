@@ -41,7 +41,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors"
+              className="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
             >
               {children}
             </a>

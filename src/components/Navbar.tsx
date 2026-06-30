@@ -40,7 +40,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 isActive(item.href)
                   ? "text-accent bg-accent/10"
                   : "text-foreground-secondary hover:text-foreground hover:bg-card-hover"
@@ -60,7 +60,7 @@ export function Navbar() {
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle navigation menu"
-            className="p-2 rounded-lg hover:bg-card-hover transition-colors cursor-pointer"
+            className="p-2 rounded-lg hover:bg-card-hover transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             {mobileOpen ? (
               <X size={20} className="text-foreground-secondary" />
@@ -80,7 +80,7 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className={`px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                className={`px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   isActive(item.href)
                     ? "text-accent bg-accent/10"
                     : "text-foreground-secondary hover:text-foreground hover:bg-card-hover"

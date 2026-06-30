@@ -94,7 +94,7 @@ export function SocialLinks({ size = 20, className = "" }: SocialLinksProps) {
             target={link.platform === "Email" ? undefined : "_blank"}
             rel={link.platform === "Email" ? undefined : "noopener noreferrer"}
             aria-label={link.label}
-            className="p-2 rounded-lg text-foreground-secondary hover:text-accent hover:bg-card-hover transition-colors duration-200"
+            className="p-2 rounded-lg text-foreground-secondary hover:text-accent hover:bg-card-hover transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <Icon size={size} />
           </a>

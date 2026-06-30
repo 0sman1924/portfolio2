@@ -2,8 +2,13 @@ import { Hero } from "@/components/Hero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ReportCard } from "@/components/ReportCard";
 import { ProjectCard } from "@/components/ProjectCard";
+import dynamic from "next/dynamic";
 import { ArticleCard } from "@/components/ArticleCard";
-import { SkillsSnapshot } from "@/components/SkillsSnapshot";
+
+// Lazy load SkillsSnapshot since it is below the fold and contains heavy client-side SVG mapping
+const SkillsSnapshot = dynamic(() => import("@/components/SkillsSnapshot").then((mod) => mod.SkillsSnapshot), {
+  ssr: true, // we can keep SSR enabled for SEO but chunking separates the JS payload
+});
 import { getAllContent } from "@/lib/content";
 
 export default function Home() {

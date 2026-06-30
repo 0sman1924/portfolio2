@@ -20,7 +20,7 @@ export function ArticleCard({ slug, frontmatter }: ArticleCardProps) {
   return (
     <Link
       href={`/articles/${slug}`}
-      className="group block rounded-xl border border-card-border bg-card p-5 hover:border-accent/30 transition-colors duration-200"
+      className="group block rounded-xl border border-card-border bg-card p-5 hover:border-accent/30 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
     >
       <div className="flex items-center gap-3 text-xs text-foreground-muted mb-3">
         {formattedDate && (

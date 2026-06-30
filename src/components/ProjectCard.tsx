@@ -25,7 +25,7 @@ interface ProjectCardProps {
 export function ProjectCard({ slug, frontmatter }: ProjectCardProps) {
   return (
     <div className="group rounded-xl border border-card-border bg-card hover:border-accent/30 transition-colors duration-200">
-      <Link href={`/projects/${slug}`} className="block p-5">
+      <Link href={`/projects/${slug}`} className="block p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-xl">
         <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
           {frontmatter.title}
         </h3>
@@ -50,14 +50,14 @@ export function ProjectCard({ slug, frontmatter }: ProjectCardProps) {
             href={frontmatter.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-foreground-secondary hover:text-accent transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-foreground-secondary hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
           >
             <GithubSmallIcon />
             Source
           </a>
           <Link
             href={`/projects/${slug}`}
-            className="inline-flex items-center gap-1.5 text-xs text-foreground-secondary hover:text-accent transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-foreground-secondary hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
           >
             <ExternalLink size={14} />
             Details

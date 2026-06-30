@@ -12,7 +12,7 @@
   /* Foreground / Text */
   --foreground: #18181b;
   --foreground-secondary: #52525b;
-  --foreground-muted: #a1a1aa;
+  --foreground-muted: #71717a;
 
   /* Card */
   --card: #ffffff;
@@ -45,7 +45,7 @@
 
   --foreground: #fafafa;
   --foreground-secondary: #a1a1aa;
-  --foreground-muted: #71717a;
+  --foreground-muted: #a1a1aa;
 
   --card: #18181b;
   --card-border: #27272a;

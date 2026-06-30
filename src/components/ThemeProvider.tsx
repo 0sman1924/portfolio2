@@ -49,6 +49,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       : "light";
 
     const initial = stored || systemPreference;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(initial);
     document.documentElement.setAttribute("data-theme", initial);
     setMounted(true);

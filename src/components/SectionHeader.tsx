@@ -17,7 +17,7 @@ export function SectionHeader({
       <h2 className="text-2xl font-bold text-foreground">{title}</h2>
       <Link
         href={href}
-        className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-hover transition-colors"
+        className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
       >
         {linkLabel}
         <ArrowRight size={14} />
