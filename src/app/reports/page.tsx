@@ -2,11 +2,23 @@ import type { Metadata } from "next";
 import { getAllContent } from "@/lib/content";
 import { PageHeader } from "@/components/PageHeader";
 import { ReportsList } from "@/components/ReportsList";
+import { siteConfig } from "../../../data/site-config";
+
+const pageDescription = "Security analysis reports covering SOC, DFIR, Detection Engineering, and more.";
 
 export const metadata: Metadata = {
   title: "Reports",
-  description:
-    "Security analysis reports covering SOC, DFIR, Detection Engineering, and more.",
+  description: pageDescription,
+  openGraph: {
+    title: "Reports",
+    description: pageDescription,
+    url: `${siteConfig.url}/reports`,
+  },
+  twitter: {
+    card: "summary",
+    title: "Reports",
+    description: pageDescription,
+  },
 };
 
 export default function ReportsPage() {

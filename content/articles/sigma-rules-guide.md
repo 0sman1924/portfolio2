@@ -5,6 +5,7 @@ date: "2025-05-01"
 tags: ["Sigma", "SOC", "Detection Engineering", "Tutorial"]
 published: true
 readingTime: "15 min"
+category: "technical"
 ---
 
 # Getting Started with Sigma Rules

@@ -2,10 +2,21 @@ import type { Metadata } from "next";
 import { getAllContent } from "@/lib/content";
 import { PageHeader } from "@/components/PageHeader";
 import { ProjectCard } from "@/components/ProjectCard";
+import { siteConfig } from "../../../data/site-config";
 
 export const metadata: Metadata = {
   title: "Projects",
   description: "DevOps and software engineering projects.",
+  openGraph: {
+    title: "Projects",
+    description: "DevOps and software engineering projects.",
+    url: `${siteConfig.url}/projects`,
+  },
+  twitter: {
+    card: "summary",
+    title: "Projects",
+    description: "DevOps and software engineering projects.",
+  },
 };
 
 export default function ProjectsPage() {

@@ -6,6 +6,7 @@ tags: ["Linux", "Docker", "Tutorial"]
 thumbnail: "/images/placeholder.png"
 published: true
 readingTime: "8 min"
+category: "technical"
 ---
 
 # Sample Article

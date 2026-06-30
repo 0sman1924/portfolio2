@@ -5,6 +5,7 @@ import { BackLink } from "@/components/BackLink";
 import { Tag } from "@/components/Tag";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { ExternalLink } from "lucide-react";
+import { siteConfig } from "../../../../data/site-config";
 
 export async function generateStaticParams() {
   const slugs = getAllSlugs("projects");
@@ -19,9 +20,21 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = getContentBySlug("projects", slug);
   if (!project) return {};
+  const { title, description } = project.frontmatter;
   return {
-    title: project.frontmatter.title,
-    description: project.frontmatter.description,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url: `${siteConfig.url}/projects/${slug}`,
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
+    },
   };
 }
 

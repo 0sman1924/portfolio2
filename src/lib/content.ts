@@ -17,6 +17,7 @@ export interface ContentFrontmatter {
   github?: string;
   stack?: string[];
   pdf?: string;
+  category?: string;
 }
 
 export interface ContentItem {
@@ -71,6 +72,7 @@ export function getAllContent(
         github: data.github,
         stack: data.stack,
         pdf: data.pdf,
+        category: data.category ?? "technical",
       },
       content,
     };
@@ -128,6 +130,7 @@ export function getContentBySlug(
       github: data.github,
       stack: data.stack,
       pdf: data.pdf,
+      category: data.category ?? "technical",
     },
     content,
   };

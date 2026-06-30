@@ -2,11 +2,23 @@ import type { Metadata } from "next";
 import { getAllContent } from "@/lib/content";
 import { PageHeader } from "@/components/PageHeader";
 import { ArticlesList } from "@/components/ArticlesList";
+import { siteConfig } from "../../../data/site-config";
+
+const pageDescription = "Educational tutorials, technical notes, and guides on security and DevOps topics.";
 
 export const metadata: Metadata = {
   title: "Articles",
-  description:
-    "Educational tutorials, technical notes, and guides on security and DevOps topics.",
+  description: pageDescription,
+  openGraph: {
+    title: "Articles",
+    description: pageDescription,
+    url: `${siteConfig.url}/articles`,
+  },
+  twitter: {
+    card: "summary",
+    title: "Articles",
+    description: pageDescription,
+  },
 };
 
 export default function ArticlesPage() {
