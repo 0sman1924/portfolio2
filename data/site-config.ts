@@ -5,7 +5,7 @@
 
 export const siteConfig = {
   /** Site name used in metadata and Open Graph */
-  name: "Portfolio",
+  name: "Mahmoud Abdelnaby",
 
   /** Full title shown on the home page */
   title: "Security Analyst & DevOps Engineer",
@@ -25,14 +25,14 @@ export const siteConfig = {
   basePath: "",
 
   /** Author name for meta tags */
-  author: "Your Name",
+  author: "Mahmoud Abdelnaby",
 
   /** Default locale */
   locale: "en_US",
 
   /** Social media handles (without @) for Twitter/X cards */
   twitter: {
-    handle: "yourusername",
+    handle: "Mhmod_abdelnaby",
   },
 
   /** Keywords for SEO */

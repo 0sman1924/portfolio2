@@ -163,7 +163,7 @@ export default function AboutPage() {
             qualifications.
           </p>
           <a
-            href="/resume/resume.pdf"
+            href="/resume/Mahmoud_Abdelnaby_Resume.pdf"
             download
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-accent-foreground text-sm font-medium hover:bg-accent-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >

@@ -9,20 +9,18 @@ import { SocialLinks } from "./SocialLinks";
  * Multilingual name variants for the typing animation.
  * PRD requires "Animated multilingual name" in the Hero.
  */
-const NAME_ENGLISH = "Your Name";
-const NAME_ARABIC = "اسمك";
+const NAME_ENGLISH = "Hello.. I'm Mahmoud";
+const NAME_ARABIC = "مرحبًا.. أنا محمود";
 const OTHER_NAMES = [
-  "Votre Nom",     // French
-  "Dein Name",     // German
-  "Il Tuo Nome",   // Italian
-  "Tu Nombre",     // Spanish
-  "Adınız",        // Turkish
-  "نام شما",       // Persian (Farsi)
-  "Ваше имя",      // Russian
-  "你的名字",      // Chinese
-  "당신의 이름",   // Korean
-  "あなたの名前",   // Japanese
-  "आपका नाम",      // Hindi
+  "Bonjour.. Je suis Mahmoud",     // French
+  "Hallo.. Ich bin Mahmoud",     // German
+  "Ciao.. Io sono Mahmoud",   // Italian
+  "Hola.. Soy Mahmoud",     // Spanish
+  "Merhaba.. Ben Mehmut",        // Turkish
+  "سلام.. من محمود هستم",       // Persian (Farsi)
+  "Здравствуйте.. Я Махмуд",      // Russian
+  "你好.. 我是马哈茂德",      // Chinese
+  "こんにちは.. 私はマハメドです",   // Japanese
 ];
 
 const TYPING_SPEED = 80;
@@ -31,9 +29,9 @@ const PAUSE_DURATION = 2000;
 
 const getRandomName = () => {
   const rand = Math.random();
-  if (rand < 0.4) return NAME_ENGLISH; // 40% probability
-  if (rand < 0.8) return NAME_ARABIC; // 40% probability
-  return OTHER_NAMES[Math.floor(Math.random() * OTHER_NAMES.length)]; // 20% remaining
+  if (rand < 0.3) return NAME_ENGLISH; // 30% probability
+  if (rand < 0.7) return NAME_ARABIC; // 40% probability
+  return OTHER_NAMES[Math.floor(Math.random() * OTHER_NAMES.length)]; // 30% remaining
 };
 
 export function Hero() {
@@ -59,7 +57,7 @@ export function Hero() {
           } else {
             // Finished deleting — select next name
             setIsDeleting(false);
-            
+
             // Pick a new random name that is different from the current one (if possible)
             let nextName = getRandomName();
             while (nextName === currentName && OTHER_NAMES.length > 0) {
