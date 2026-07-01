@@ -2,7 +2,7 @@
 title: "Tempest DFIR Investigation"
 date: "2026-07-01"
 description: "Comprehensive DFIR investigation reconstructing a Windows compromise using Sysmon logs, Windows Event Logs, and PCAP analysis."
-thumbnail: "/images/reports/tempest/cover.png"
+thumbnail: "/images/reports/dfir_tempest/tempest-cover.png"
 tags:
 - DFIR
 - Windows
@@ -11,7 +11,7 @@ tags:
 - Incident Response
 - MITRE ATT&CK
 
-github: "<https://github.com/Mabdelnaby1924/DFIR-Reports/tree/main/Tempest-Incident>"
+github: "https://github.com/Mabdelnaby1924/DFIR-Reports/tree/main/Tempest-Incident"
 pdf: "/reports/Tempest_DFIR_Report.pdf"
 featured: true
 readingTime: "20 min"

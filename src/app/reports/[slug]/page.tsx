@@ -56,10 +56,10 @@ export default async function ReportDetailPage({
 
   const formattedDate = frontmatter.date
     ? new Date(frontmatter.date).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
     : "";
 
   return (
@@ -102,17 +102,29 @@ export default async function ReportDetailPage({
           </div>
         )}
 
-        {/* PDF download */}
-        {frontmatter.pdf && (
-          <a
-            href={frontmatter.pdf}
-            download
-            className="inline-flex items-center gap-1.5 text-sm text-accent hover:text-accent-hover transition-colors"
-          >
-            <Download size={14} />
-            Download PDF
-          </a>
-        )}
+        <div className="flex flex-wrap gap-4">
+          {frontmatter.pdf && (
+            <a
+              href={frontmatter.pdf}
+              download
+              className="inline-flex items-center gap-1.5 text-sm text-accent hover:text-accent-hover transition-colors"
+            >
+              <Download size={14} />
+              Download PDF
+            </a>
+          )}
+
+          {frontmatter.github && (
+            <a
+              href={frontmatter.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-accent hover:text-accent-hover transition-colors"
+            >
+              View on GitHub
+            </a>
+          )}
+        </div>
       </header>
 
       <hr className="border-border mb-8" />
