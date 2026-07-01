@@ -12,22 +12,22 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
         remarkPlugins={[remarkGfm]}
         components={{
           h1: ({ children }) => (
-            <h1 className="text-3xl font-bold text-foreground mt-10 mb-4">
+            <h1 className="text-3xl font-bold text-foreground first:mt-0 mt-14 mb-6">
               {children}
             </h1>
           ),
           h2: ({ children }) => (
-            <h2 className="text-2xl font-bold text-foreground mt-8 mb-3 pb-2 border-b border-border">
+            <h2 className="text-2xl font-bold text-foreground mt-12 mb-5 pb-2 border-b border-border">
               {children}
             </h2>
           ),
           h3: ({ children }) => (
-            <h3 className="text-xl font-semibold text-foreground mt-6 mb-2">
+            <h3 className="text-xl font-semibold text-foreground mt-10 mb-4">
               {children}
             </h3>
           ),
           h4: ({ children }) => (
-            <h4 className="text-lg font-semibold text-foreground mt-4 mb-2">
+            <h4 className="text-lg font-semibold text-foreground mt-8 mb-3">
               {children}
             </h4>
           ),
@@ -47,16 +47,16 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
             </a>
           ),
           ul: ({ children }) => (
-            <ul className="list-disc list-inside space-y-1 mb-4 text-foreground-secondary">
+            <ul className="list-disc pl-6 space-y-2 mb-4 text-foreground-secondary">
               {children}
             </ul>
           ),
           ol: ({ children }) => (
-            <ol className="list-decimal list-inside space-y-1 mb-4 text-foreground-secondary">
+            <ol className="list-decimal pl-6 space-y-2 mb-4 text-foreground-secondary">
               {children}
             </ol>
           ),
-          li: ({ children }) => <li className="leading-relaxed">{children}</li>,
+          li: ({ children }) => <li className="leading-relaxed my-1">{children}</li>,
           blockquote: ({ children }) => (
             <blockquote className="border-l-4 border-accent pl-4 my-4 text-foreground-secondary italic">
               {children}
